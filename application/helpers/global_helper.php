@@ -12,3 +12,8 @@ function numberFormat($pIntValue, $pIntDecimal = 2)
 {
     return number_format($pIntValue, $pIntDecimal, ',', '.');
 }
+
+function unknown()
+{
+	return "unknown";
+}
