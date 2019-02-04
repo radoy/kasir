@@ -1,0 +1,12 @@
+1. Buka file /config/autoload.php
+    - Pada array $autoload['libraries'] = array('') tambahkan database dan session menjadi
+        $autoload['libraries'] = array('database', 'session');
+    - Pada array $autoload['helper'] = array('') tambahkan url menjadi
+        $autoload['helper'] = array('url');
+
+2. Buka file /config/config.php
+    - $config['base_url'] = 'http://localhost/kasir/';
+
+3. Buka file /config/database.php
+    - Setting database sesuai database yang digunakan
+
