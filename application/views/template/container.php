@@ -8,6 +8,8 @@ if (!defined('BASEPATH'))
 <head>
     <meta charset="utf-8">
     <meta http-equiv="pragma" content="no-cache"/>
+    <link rel="shortcut icon" href="<?php echo base_url('public/img/icon.png'); ?>">
+
     <title><?php echo (isset($header) ? ($header . ' -') : ''); ?> Aplikasi Kasir</title>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('public/css/bootstrap.css'); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('public/css/data-tables.css'); ?>" />

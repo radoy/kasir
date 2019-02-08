@@ -31,6 +31,26 @@ class Masakan_model extends CI_Model
         return $arr;
     }
 
+    // Tipe 1 = Makanan
+    // Tipe 2 = Minuman
+    public function getComboDataMasakan($tipe = 0)
+    {
+        if ($tipe > 0) {
+            $this->db->where('masakanTipe', $tipe);
+        }
+
+        $query = $this->db->where('masakanStatus', 1)->order_by('masakanTipe, masakanNama')->get($this->_table);
+
+        $arr = array();
+
+        $arr[-1] = '-- Silahkan pilih salah satu --';
+        foreach ($query->result() as $row) {
+            $arr[$row->masakanId] = $row->masakanNama;
+        }
+
+        return $arr;
+    }
+
     public function writeData($id = 0)
     {
         //Setting up data

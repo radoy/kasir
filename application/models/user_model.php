@@ -99,6 +99,19 @@ class User_model extends CI_Model
         return $this->db->where($where)->update($this->_table, $data);
     }
 
+    public function getComboDataByLevel($level)
+    {
+        $query = $this->db->where('userLevelId', $level)->get($this->_table);
+
+        $arr = array();
+
+        foreach ($query->result() as $row) {
+            $arr[$row->userId] = $row->userName;
+        }
+
+        return $arr;
+    }
+
 //delete user
     public function deleteData($id)
     {
