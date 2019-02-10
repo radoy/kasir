@@ -3,6 +3,17 @@ if (isAdmin()) {
     ?>
 
     <ul class="nav nav-sidebar">
+        <li class="nav-header">
+            <a href="#">
+                <i class="glyphicon glyphicon-folder-open"></i> Main Menu
+            </a>
+        </li>
+        <li class="">
+            <a href="<?php echo site_url('transaksi'); ?>">
+                <i class="glyphicon glyphicon-th-list"></i> Daftar Transaksi
+            </a>
+        </li>
+        <li class="nav-divider"></li>
         <li class="">
             <a href="<?php echo site_url('order'); ?>">
                 <i class="glyphicon glyphicon-th-list"></i> Daftar Order
@@ -13,11 +24,9 @@ if (isAdmin()) {
                 <i class="glyphicon glyphicon-pencil"></i> Order
             </a>
         </li>
-    </ul>
-    <ul class="nav nav-sidebar">
         <li class="nav-header">
             <a href="#">
-                <i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;Master Data
+                <i class="glyphicon glyphicon-folder-open"></i> Master Data
             </a>
         </li>
         <li class="">

@@ -18,6 +18,7 @@ if (!defined('BASEPATH'))
     <script src="<?php echo base_url('public/js/jquery.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('public/js/bootstrap.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('public/js/jquery.data-tables.js'); ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('public/js/custom.js'); ?>" type="text/javascript"></script>
 
     <script type="text/javascript">var hostname = "<?php echo base_url(); ?>"</script>
 

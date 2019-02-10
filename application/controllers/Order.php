@@ -41,7 +41,7 @@ class Order extends CI_Controller
                 $this->session->set_flashdata('success_message', 'Data berhasil disimpan. Silahkan input masakan yang ingin dipesan');
                 redirect('order/detail/' . $dIntId);
             } else {
-                $this->daMasakan->set_flashdata('error_message', 'Data gagal disimpan.');
+                $this->session->set_flashdata('error_message', 'Data gagal disimpan.');
             }
         }
 
@@ -71,7 +71,7 @@ class Order extends CI_Controller
                 if ($this->daOrderDetail->createDataDetail($id)) {
                     $this->session->set_flashdata('success_message', 'Order berhasil ditambah.');
                 } else {
-                    $this->daMasakan->set_flashdata('error_message', 'Data gagal disimpan.');
+                    $this->session->set_flashdata('error_message', 'Data gagal disimpan.');
                 }
 
                 redirect('order/detail/' . $id);

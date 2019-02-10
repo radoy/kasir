@@ -15,7 +15,10 @@ class Order_model extends CI_Model
 
     public function getData()
     {
-        return $this->db->get($this->_table);
+        return $this->db
+            ->join('user', 'orderUserId = userId', 'inner')
+            ->order_by('orderStatus')
+            ->get($this->_table);
     }
 
     public function getDataOrderActive()
@@ -29,7 +32,19 @@ class Order_model extends CI_Model
     {
         return $this->db
             ->join('user', 'orderUserId = userId', 'inner')
-            ->where('orderId', $id)->get($this->_table);
+            ->where('orderId', $id)
+            ->get($this->_table);
+    }
+
+    public function getDataByIdWithTotal($id)
+    {
+        return $this->db
+            ->select('*, SUM(masakanHarga * orderDetailPorsi) AS totalHarga, COUNT(orderDetailId) as totalItem')
+            ->join('user', 'orderUserId = userId', 'inner')
+            ->join('order_detail', 'orderId = orderDetailOrderId', 'inner')
+            ->join('masakan', 'masakanId = orderDetailMasakanId', 'inner')
+            ->where('orderId', $id)
+            ->get($this->_table);
     }
 
     public function getDataDetailByOrderId($id)
@@ -79,5 +94,15 @@ class Order_model extends CI_Model
         $data = array('orderDetailStatus' => 'c');
 
         return $this->db->where('orderDetailId', $id)->update('order_detail', $data);
+    }
+
+    public function makePayment($id)
+    {
+        //Setting up data
+        $data = array(
+            'orderKeterangan' => 'Jumlah pembayaran: ' . $this->input->post('jumlah_bayar', TRUE),
+            'orderStatus' => 'p');
+
+        return $this->db->where('orderId', $id)->update($this->_table, $data);
     }
 }
