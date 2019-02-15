@@ -44,6 +44,7 @@ class Order_model extends CI_Model
             ->join('order_detail', 'orderId = orderDetailOrderId', 'inner')
             ->join('masakan', 'masakanId = orderDetailMasakanId', 'inner')
             ->where('orderId', $id)
+			->where('orderDetailStatus', 'o')
             ->get($this->_table);
     }
 

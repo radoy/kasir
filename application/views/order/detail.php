@@ -114,7 +114,7 @@ if ($dataOrder->num_rows() > 0) {
                             ?>
                             <a class="btn btn-xs btn-warning"
                                href="<?php echo site_url('order/cancel/' . $item->orderDetailId); ?>"
-                               title="Edit">
+                               title="Cancel Pesanan">
                                 <i class="glyphicon glyphicon-minus"></i>
                             </a>
                             <?php

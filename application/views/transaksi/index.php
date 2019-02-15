@@ -1,5 +1,11 @@
 <div>
-    <div style="margin-top: 45px">
+    <div class="table-before">
+        <a class="btn btn-primary pull-right" href="<?php echo site_url('transaksi/print_transaksi'); ?>">
+            <i class="glyphicon glyphicon-print"></i> Print
+        </a>
+        <div class="clearfix"></div>
+    </div>
+    <div style="margin-top: 15px">
         <table class="display table table-bordered" style="width:100%" id="table-masakan">
             <thead>
             <tr>
